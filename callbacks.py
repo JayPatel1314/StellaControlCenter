@@ -13,13 +13,13 @@ SUDO_USERS = Config.SUDO_USERS
 SUPPORT_USERS = Config.SUPPORT_USERS
 
 help_string = "<b>Available commands:</b>\n"
-"- /start: for start message.\n"
-"- /help: for get this message.\n"
-"- /admins: get user ID's list of who have power over me.\n"
-"- /restart: to restart @MissStella_bot.\n"
-"- /dynos: to check Stella's dyno usage.\n"
-"- /log: get latest console log in .txt\n\n"
-"Join channel: @spookyanii"
+              "- /start: for start message.\n"
+              "- /help: for get this message.\n"
+              "- /admins: get user ID's list of who have power over me.\n"
+              "- /restart: to restart @MissStella_bot.\n"
+              "- /dynos: to check Stella's dyno usage.\n"
+              "- /log: get latest console log in .txt\n\n"
+              "Join channel: @spookyanii"
 
 
 non_admin = "<code>You are not allowed to use this command.\nDo</code> /help <code>for get more commands.\nJoin channel:</code> @spookyanii"
