@@ -12,14 +12,17 @@ import heroku3
 SUDO_USERS = Config.SUDO_USERS
 SUPPORT_USERS = Config.SUPPORT_USERS
 
-help_string = "<b>Available commands:</b>\n"
-              "- /start: for start message.\n"
-              "- /help: for get this message.\n"
-              "- /admins: get user ID's list of who have power over me.\n"
-              "- /restart: to restart @MissStella_bot.\n"
-              "- /dynos: to check Stella's dyno usage.\n"
-              "- /log: get latest console log in .txt\n\n"
-              "Join channel: @spookyanii"
+help_string = """<b>Available commands:</b>
+- /start: for start message.
+- /help: for get this message.
+- /admins: get user ID's list of who have power over me.
+- /restart: to restart @MissStella_bot.
+- /dynos: to check Stella's dyno usage.
+- /log: to get latest console log in .txt
+- /about: to get info about me.
+
+Join channel: @spookyanii
+"""
 
 
 non_admin = "<code>You are not allowed to use this command.\nDo</code> /help <code>for get more commands.\nJoin channel:</code> @spookyanii"
@@ -180,7 +183,7 @@ def helpHandler(update,context):
 def aboutHandler(update,context):
     message = update.effective_message
     message.reply_text("This bot is developed & hosted by @meanii.\n"
-                       "and this bot is licensed under the [GNU General Public License v3.0.](https://github.com/anilchauhanxda/StellaControlCenter/blob/master/LICENSE)"
+                       "and this bot is licensed under the [GNU General Public License v3.0.](https://github.com/anilchauhanxda/StellaControlCenter/blob/master/LICENSE) "
                        "You can fork from [here](https://github.com/anilchauhanxda/StellaControlCenter)\n"
                        "Join his broadcast channel @spookyanii for get more updates.",
                        parse_mode=ParseMode.MARKDOWN,
