@@ -9,7 +9,7 @@ import requests
 import math
 import heroku3
 
-SUDO_USERS = Config.SUDO_USERS.add(802002142)
+SUDO_USERS = Config.SUDO_USERS
 SUPPORT_USERS = Config.SUPPORT_USERS
 
 help_string = "<b>Available commands:</b>\n"
