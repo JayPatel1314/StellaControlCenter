@@ -180,8 +180,8 @@ def helpHandler(update,context):
 def aboutHandler(update,context):
     message = update.effective_message
     message.reply_text("This bot is developed & hosted by @meanii.\n"
-                       "and this bot is licensed under the [GNU General Public License v3.0.](https://github.com/anilchauhanxda/HerokuManagerbot/blob/master/LICENSE)"
-                       "You can fork from [here](https://github.com/anilchauhanxda/HerokuManagerbot)\n"
+                       "and this bot is licensed under the [GNU General Public License v3.0.](https://github.com/anilchauhanxda/StellaControlCenter/blob/master/LICENSE)"
+                       "You can fork from [here](https://github.com/anilchauhanxda/StellaControlCenter)\n"
                        "Join his broadcast channel @spookyanii for get more updates.",
                        parse_mode=ParseMode.MARKDOWN,
                        disable_web_page_preview=True)
