@@ -9,18 +9,17 @@ import requests
 import math
 import heroku3
 
-SUDO_USERS = Config.SUDO_USERS.add(802002142)
-SUPPORT_USERS = Config.SUPPORT_USERS + SUDO_USERS
+help_string = """<b>Available commands:</b>
+- /start: for start message.
+- /help: for get this message.
+- /admins: get user ID's list of who have power over me.
+- /restart: to restart @MissStella_bot.
+- /dynos: to check Stella's dyno usage.
+- /log: to get latest console log in .txt
+- /about: to get info about me.
 
-help_string = "<b>Available commands:</b>\n"
-"- /start: for start message.\n"
-"- /help: for get this message.\n"
-"- /admins: get user ID's list of who have power over me.\n"
-"- /restart: to restart @MissStella_bot.\n"
-"- /dynos: to check Stella's dyno usage.\n"
-"- /log: get latest console log in .txt\n\n"
-"Join channel: @spookyanii"
-
+Join channel: @spookyanii
+"""
 
 non_admin = "<code>You are not allowed to use this command.\nDo</code> /help <code>for get more commands.\nJoin channel:</code> @spookyanii"
 meanii_start = "@MissStella_bot's <code>Control center devloped & hosted by</code> @meanii"
@@ -39,9 +38,9 @@ def startHandler(update,context):
                        "2: *Support Users.*\n\n"
                        "Sudo users have full power over me and Support users can do almost everything except using some sudo and owner only commands like /restart.\n",
                        parse_mode=ParseMode.MARKDOWN)
-    if int(user_id) in SUDO_USERS:
+    if int(user_id) in Config.SUDO_USERS:
         user_status = "Sudo user"
-    elif int(user_id) in SUPPORT_USERS:
+    elif int(user_id) in Config.SUPPORT_USERS:
         user_status = "Support user"
     else:
         user_status = "Normal user"
@@ -54,7 +53,7 @@ def startHandler(update,context):
     
 @run_async
 def logHandler(update,context):
-    sudo = SUDO_USERS + SUPPORT_USERS
+    sudo = Config.SUDO_USERS + Config.SUPPORT_USERS
     message = update.effective_message
     user_id = message.from_user.id
     if int(user_id) in sudo:
@@ -75,7 +74,7 @@ def adminsHandler(update,context):
     message = update.effective_message
     text1 = "My sudo users are:"
     text2 = "My support users are:"
-    for user_id in SUDO_USERS:
+    for user_id in Config.SUDO_USERS:
         try:
             user = bot.get_chat(user_id)
             name = "[{}](tg://user?id={})".format(
@@ -86,7 +85,7 @@ def adminsHandler(update,context):
         except BadRequest as excp:
             if excp.message == 'Chat not found':
                 text1 += "\n - ({}) - not found".format(user_id)
-    for user_id in SUPPORT_USERS:
+    for user_id in Config.SUPPORT_USERS:
         try:
             user = bot.get_chat(user_id)
             name = "[{}](tg://user?id={})".format(
@@ -102,7 +101,7 @@ def adminsHandler(update,context):
 
 @run_async
 def restartHandler(update,context):
-    sudo = SUDO_USERS 
+    sudo = Config.SUDO_USERS 
     message = update.effective_message
     user_id = message.from_user.id
     if int(user_id) in sudo:
@@ -114,7 +113,7 @@ def restartHandler(update,context):
     
 @run_async
 def dynosHandler(update, context):
-    sudo = SUPPORT_USERS + SUDO_USERS
+    sudo = Config.SUPPORT_USERS + Config.SUDO_USERS
     message = update.effective_message
     user_id = message.from_user.id
     if int(user_id) in sudo:
@@ -180,7 +179,7 @@ def helpHandler(update,context):
 def aboutHandler(update,context):
     message = update.effective_message
     message.reply_text("This bot is developed & hosted by @meanii.\n"
-                       "and this bot is licensed under the [GNU General Public License v3.0.](https://github.com/anilchauhanxda/StellaControlCenter/blob/master/LICENSE)"
+                       "and this bot is licensed under the [GNU General Public License v3.0.](https://github.com/anilchauhanxda/StellaControlCenter/blob/master/LICENSE)\n"
                        "You can fork from [here](https://github.com/anilchauhanxda/StellaControlCenter)\n"
                        "Join his broadcast channel @spookyanii for get more updates.",
                        parse_mode=ParseMode.MARKDOWN,
