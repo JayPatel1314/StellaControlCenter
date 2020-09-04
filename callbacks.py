@@ -53,7 +53,7 @@ def startHandler(update,context):
     
 @run_async
 def logHandler(update,context):
-    sudo = Config.SUDO_USERS + Config.SUPPORT_USERS
+    sudo = list(Config.SUDO_USERS) + list(Config.SUPPORT_USERS)
     message = update.effective_message
     user_id = message.from_user.id
     if int(user_id) in sudo:
