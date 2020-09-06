@@ -1,4 +1,4 @@
-# Stella's Control Center  // @stellaSysbot
+# Stella's Control Center  // [@stellaSysbot](https://t.me/stellasysbot)
 >is a telegram bot that uses Heroku API and helps manage heroku app from telegram.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
